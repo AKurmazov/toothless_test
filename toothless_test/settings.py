@@ -1,12 +1,6 @@
 import os
 from pathlib import Path
 
-from dotenv import load_dotenv, find_dotenv
-
-
-# Load environmental variables
-load_dotenv(find_dotenv())
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -15,6 +9,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = bool(int(os.environ.get('DEBUG', 1)))
 
 ALLOWED_HOSTS = ['0.0.0.0',]
+PORT = os.environ.get('PORT')
 
 
 # Application definition
@@ -69,6 +64,7 @@ DATABASES = {
         'NAME': os.environ.get('DB_NAME'),
         'USER': os.environ.get('DB_USER'),
         'PORT': os.environ.get('DB_PORT'),
+        'PASSWORD': os.environ.get('DB_PASSWORD'),
     }
 }
 

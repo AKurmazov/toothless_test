@@ -2,20 +2,21 @@ version: "3"
 
 services:
   web:
+    env_file:
+      - .env
     build:
       context: .
     ports:
-      - "8000:8000"
+      - "${PORT}:${PORT}"
     volumes:
       - .:/code
     command: >
-      python manage.py runserver 0.0.0.0:8000
+      python manage.py runserver 0.0.0.0:${PORT}
     depends_on:
       - db
   db:
     image: postgres
     ports:
-      - "5432:5432"
+      - "${DB_PORT}:${DB_PORT}"
     environment:
-      POSTGRES_DB: "db"
-      POSTGRES_HOST_AUTH_METHOD: "trust"
+      POSTGRES_PASSWORD: "${DB_PASSWORD}"

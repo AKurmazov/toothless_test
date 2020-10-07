@@ -44,7 +44,7 @@ def buy_item(request, pk):
         line_items=[
             {
                 'price_data': {
-                    'currency': 'usd',
+                    'currency': item.currency,
                     'unit_amount': int(item.price * 100),
                     'product_data': product_data,
                 },

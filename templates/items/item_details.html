@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Item Details</title>
+    <script src="https://js.stripe.com/v3/"></script>
+</head>
+<body>
+    <h1>Item#{{ item.id }} details page</h1>
+    <p>Name: {{ item.name }}</p>
+    {% if item.description %}
+        <p>Description {{ item.description }}</p>
+    {% endif %}
+    <p>Price: {{ item.price }}$</p>
+    <button id="buy-button">Buy Now!</button>
+
+    <script type="text/javascript">
+        var stripe = Stripe('{{ stripe_public_key }}');
+        var buyButton = document.getElementById('buy-button');
+        buyButton.addEventListener('click', function() {
+            fetch('/buy/{{ item.id }}', {method: 'GET'})
+            .then(response => response.json())
+            .then(session => stripe.redirectToCheckout({ sessionId: session.session_id }))
+            .then(result => function(result) {
+                if (result.error) {
+                    alert(result.error.message);
+                }
+            })
+            .catch(function (error) {
+                console.error("Error:", error);
+            });
+        });
+    </script>
+</body>
+</html>

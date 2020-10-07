@@ -7,11 +7,11 @@ services:
     build:
       context: .
     ports:
-      - "${PORT}:${PORT}"
+      - "${RUNSERVER_PORT}:${RUNSERVER_PORT}"
     volumes:
       - .:/code
     command: >
-      python manage.py runserver 0.0.0.0:${PORT}
+      python manage.py runserver 0.0.0.0:${RUNSERVER_PORT}
     depends_on:
       - db
   db:

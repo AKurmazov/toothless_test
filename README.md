@@ -7,7 +7,6 @@ Rename `.env.example` to `.env` and fulfill the variables with the following val
 
 ```
 SECRET_KEY=di_v5)6%5^hym0)c5s$!5*v)=kb_$=89u&-r6j6ry1g96h1l4n
-RUNSERVER_PORT=8000
 DB_NAME=postgres
 DB_USER=postgres
 DB_PORT=5432
@@ -21,7 +20,7 @@ The project uses **Docker**, so initially you have to build and run the image us
 ```
 $ docker-compose up --build -d
 ```
-This command will also run the migrations and set up the server at http://0.0.0.0:8000 (in case you set **RUNSERVER_PORT** to be 8000)
+This command will also run the migrations and set up the server at http://0.0.0.0:8000
 
 Next, you will have to create a superuser since there are no interfaces for creating Items outside the admin page
 ```

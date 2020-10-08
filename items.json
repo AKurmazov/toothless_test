@@ -1,0 +1,50 @@
+[
+  {
+    "model": "items.item",
+    "pk": 1,
+    "fields": {
+      "name": "Fender Telecaster",
+      "description": "Telecaster, aka Tele, is a revolutionary guitar that was introduced in 1950 by Fender",
+      "price": 1500,
+      "currency": "USD"
+    }
+  },
+  {
+    "model": "items.item",
+    "pk": 2,
+    "fields": {
+      "name": "Fender Stratocaster",
+      "description": "Stratocaster is the most famous electric guitar ever shipped",
+      "price": 1200,
+      "currency": "USD"
+    }
+  },
+  {
+    "model": "items.item",
+    "pk": 3,
+    "fields": {
+      "name": "Fender Mustang",
+      "description": "Mustang was one of Kurt Cobain's favorite guitars",
+      "price": 55000,
+      "currency": "RUB"
+    }
+  },
+  {
+    "model": "items.item",
+    "pk": 4,
+    "fields": {
+      "name": "Fender Jag-Stang",
+      "price": 60000,
+      "currency": "RUB"
+    }
+  },
+  {
+    "model": "items.item",
+    "pk": 5,
+    "fields": {
+      "name": "Fender Jazzmaster",
+      "price": 72000,
+      "currency": "RUB"
+    }
+  }
+]

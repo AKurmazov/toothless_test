@@ -28,6 +28,11 @@ Next, you will have to create a superuser since there are no interfaces for crea
 $ docker-compose run web python manage.py createsuperuser
 ``` 
 
+I have prepared a fixture though, you can use it to populate the database with some initial items
+```
+$ docker-compose run web python manage.py loaddata items.json
+```
+
 Also, I wrote some unit tests, and it would be great to run them so that to make sure the app works as intended
 ```
 $ docker-compose run web python manage.py test

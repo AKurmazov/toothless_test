@@ -11,7 +11,8 @@ services:
     volumes:
       - .:/code
     command: >
-      python manage.py runserver 0.0.0.0:${RUNSERVER_PORT}
+      bash -c "python manage.py migrate &&
+      python manage.py runserver 0.0.0.0:${RUNSERVER_PORT}"
     depends_on:
       - db
   db:

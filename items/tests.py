@@ -68,6 +68,13 @@ class CreateItemTest(TestCase):
         }
         self.assertRaises(ValidationError, Item.objects.create, **data)
 
+    def test_create_item_failure_missing_price(self):
+        data = {
+            'name': 'test',
+            'currency': 'USD'
+        }
+        self.assertRaises(ValidationError, Item.objects.create, **data)
+
     def test_create_item_failure_violates_name_max_length_constraint(self):
         data = {
             'name': 'c' * 129,

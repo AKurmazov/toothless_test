@@ -13,7 +13,7 @@
     {% endif %}
     <p>Price: {{ item.price }} {{ item.currency }}</p>
     <button id="buy-button">Buy Now!</button>
-
+    <a href="/">Get back</a>
     <script type="text/javascript">
         var stripe = Stripe('{{ stripe_public_key }}');
         var buyButton = document.getElementById('buy-button');

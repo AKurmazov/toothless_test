@@ -31,7 +31,7 @@ def buy_item(request, pk):
     try:
         item = Item.objects.get(pk=pk)
     except ObjectDoesNotExist:
-        return JsonResponse({"Error": "Not found.",})
+        return JsonResponse({"Message": "Not found."}, status=404)
 
     product_data = {
         'name': item.name,
@@ -56,4 +56,4 @@ def buy_item(request, pk):
         cancel_url=request.build_absolute_uri(reverse('index')),
     )
 
-    return JsonResponse({'session_id': session.id})
+    return JsonResponse({'session_id': session.id}, status=200)
